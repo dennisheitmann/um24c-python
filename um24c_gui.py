@@ -13,7 +13,8 @@ import matplotlib.animation as animation
 from matplotlib import style
 style.use('ggplot')
 
-rfcomm = serial.Serial(port = "/dev/rfcomm1", baudrate = 9600, timeout = 1)
+serial_port = "/dev/rfcomm1"
+rfcomm = serial.Serial(port = serial_port, baudrate = 9600, timeout = 1)
 rfcomm.flushInput()
 
 sleeptime = 2.5
@@ -30,11 +31,13 @@ current_gui = str("0.000 A")
 power_gui = str("0.000 W")
 temp_gui = str("0 C")
 
+label_port = tkinter.Label(frame, text = serial_port)
 label_d = tkinter.Label(frame, text = date_gui, relief = tkinter.RAISED)
 label_v = tkinter.Label(frame, text = voltage_gui, relief = tkinter.RAISED)
 label_c = tkinter.Label(frame, text = current_gui, relief = tkinter.RAISED)
 label_p = tkinter.Label(frame, text = power_gui, relief = tkinter.RAISED)
 label_t = tkinter.Label(frame, text = temp_gui, relief = tkinter.RAISED)
+label_port.pack(side = tkinter.TOP)
 label_d.pack(side = tkinter.TOP)
 label_v.pack(side = tkinter.LEFT)
 label_c.pack(side = tkinter.LEFT)
