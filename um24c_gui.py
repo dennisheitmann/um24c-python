@@ -14,8 +14,12 @@ from matplotlib import style
 style.use('ggplot')
 
 serial_port = "/dev/rfcomm1"
-rfcomm = serial.Serial(port = serial_port, baudrate = 9600, timeout = 1)
-rfcomm.flushInput()
+try:
+    rfcomm = serial.Serial(port = serial_port, baudrate = 9600, timeout = 1)
+    rfcomm.flushInput()
+except:
+    print(serial_port, "not available")
+    exit(1)
 
 sleeptime = 2.5
 
