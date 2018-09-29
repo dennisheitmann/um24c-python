@@ -5,6 +5,7 @@ import time
 import datetime
 import sys
 
+serial_port = "/dev/rfcomm1"
 try:
     rfcomm = serial.Serial(port = serial_port, baudrate = 9600, timeout = 1)
     rfcomm.flushInput()
