@@ -6,7 +6,7 @@ import time
 import datetime
 import sys
 import matplotlib
-matplotlib.use("TkAgg")
+#matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 import matplotlib.animation as animation
@@ -51,7 +51,7 @@ fig = Figure(figsize=(5,4), dpi = 100)
 a = fig.add_subplot(111)
 a.xaxis.set_tick_params(rotation=30)
 canvas = FigureCanvasTkAgg(fig, master = bottomframe)
-canvas.show()
+canvas.draw()
 canvas.get_tk_widget().pack(side = 'right', fill = 'both', expand = 1, ipadx = 50, ipady = 50)
 dates = []
 powers = []
